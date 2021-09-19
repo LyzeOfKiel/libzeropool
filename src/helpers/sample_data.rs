@@ -1,4 +1,3 @@
-
 use crate::{constants, 
     fawkes_crypto::{
         ff_uint::Num,

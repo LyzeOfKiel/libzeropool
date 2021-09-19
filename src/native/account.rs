@@ -19,6 +19,11 @@ impl<Fr:PrimeField> Account<Fr> {
     pub fn hash<P:PoolParams<Fr=Fr>>(&self, params:&P) -> Num<Fr> {
         poseidon(&[self.eta, self.i.to_num(), self.b.to_num(), self.e.to_num(), self.t.to_num()], params.account())
     }
+
+    // returns true if Account is dummy or false otherwise
+    pub fn is_dummy_raw(&self) -> bool {
+        (self.i.as_num()+self.b.as_num()+self.e.as_num()+self.t.as_num()).is_zero()
+    }
 }
 
 

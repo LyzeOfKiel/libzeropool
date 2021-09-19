@@ -28,7 +28,7 @@ impl<C:CS> CNote<C> {
         c_poseidon(&inputs, params.note())
     }
 
-    // returns zero if note is dummy or nonzero otherwise
+    // returns zero if Note is dummy or nonzero otherwise
     pub fn is_dummy_raw(&self) -> CNum<C> {
         self.b.as_num().clone()
     }

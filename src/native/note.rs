@@ -17,6 +17,11 @@ impl<Fr:PrimeField> Note<Fr> {
     pub fn hash<P:PoolParams<Fr=Fr>>(&self, params:&P) -> Num<Fr> {
         poseidon(&[self.d.to_num(), self.p_d, self.b.to_num(), self.t.to_num()], params.note())
     }
+
+    // returns true if Note is dummy or false otherwise
+    pub fn is_dummy_raw(&self) -> bool {
+        self.b.as_num().is_zero()
+    }
 }
 
 impl<Fr:PrimeField> Copy for Note<Fr> {}

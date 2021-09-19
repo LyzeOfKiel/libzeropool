@@ -21,7 +21,7 @@ impl<C:CS> CAccount<C> {
         c_poseidon(&inputs, params.account())
     }
 
-    // returns zero if Note is dummy or nonzero otherwise
+    // returns zero if Account is dummy or nonzero otherwise
     pub fn is_dummy_raw(&self) -> CNum<C> {
         self.i.as_num()+self.b.as_num()+self.e.as_num()+self.t.as_num()
     }
